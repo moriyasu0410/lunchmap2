@@ -6,7 +6,7 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-%w{php php-opcache php-devel php-mbstring php-mysql php-mcrypt php-pecl-memcached php-pecl-xdebug}.each do |p|
+%w{php php-opcache php-devel php-mbstring php-mcrypt php-pecl-memcached php-pecl-xdebug}.each do |p|
   package p do
     action :install
       options "--enablerepo=remi --enablerepo=remi-php55"
