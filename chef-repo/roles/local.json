@@ -11,6 +11,10 @@
     "recipe[httpd]",
     "recipe[httpd::config]",
     "recipe[php55]",
-    "recipe[php55::config]"
+    "recipe[php55::config]",
+    "recipe[libaio]",
+    "recipe[mysql56::yum]",
+    "recipe[mysql56]",
+    "recipe[mysql56::config]"
   ]
 }
