@@ -7,7 +7,8 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'My Web Application',
+	'name'=>'Moriyasu Lunchmap2',
+        'defaultController' => 'index',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -52,6 +53,11 @@ return array(
 
 		// database settings are configured in database.php
 		'db'=>require(dirname(__FILE__).'/database.php'),
+
+                'viewRenderer'=>array(
+                    'class'=>'application.extensions.smarty.ESmartyViewRenderer',
+                    'fileExtension' => '.tpl',
+                ),
 
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
