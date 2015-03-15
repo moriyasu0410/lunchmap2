@@ -1,0 +1,15 @@
+<VirtualHost *:80>
+    ServerName lunchmap2
+    CustomLog "logs/lunchmap2.access_log" combined
+    ErrorLog "logs/lunchmap2.error_log"
+    DocumentRoot "/var/www/lunchmap2"
+    DirectoryIndex index.html index.php
+    SetEnv APPLICATION_ENV "local"
+
+    <Directory "/var/www/lunchmap2">
+        Options FollowSymLinks
+        AllowOverride AuthConfig Limit FileInfo Indexes Options
+        Order allow,deny
+        Allow from all
+    </Directory>
+</VirtualHost>
