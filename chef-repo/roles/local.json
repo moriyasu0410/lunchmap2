@@ -7,6 +7,7 @@
   "run_list": [
     "recipe[yum]",
     "recipe[base]",
+    "recipe[timezone]",
     "recipe[httpd]",
     "recipe[httpd::config]",
     "recipe[php55]",
