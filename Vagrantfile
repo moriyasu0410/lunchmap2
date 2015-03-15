@@ -38,6 +38,7 @@ Vagrant.configure(2) do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   config.vm.synced_folder "./lunchmap2.moriyasu.net", "/var/www/lunchmap2"
+  config.vm.synced_folder "../yii-1.1.16", "/var/www/yii"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -68,4 +69,10 @@ Vagrant.configure(2) do |config|
   #   sudo apt-get update
   #   sudo apt-get install -y apache2
   # SHELL
+  config.omnibus.chef_version = :latest
+  config.vm.provision "chef_solo" do |chef|
+    chef.cookbooks_path = ["./chef-repo/site-cookbooks", "./chef-repo/cookbooks"]
+    chef.roles_path = "./chef-repo/roles"
+    chef.add_role "local"
+  end
 end
