@@ -16,6 +16,10 @@ return array(
 	// autoloading model and component classes
 	'import'=>array(
 		'application.models.*',
+		'application.models.activerecords.*',
+		'application.models.activerecords.generated.*',
+		'application.models.domains.*',
+		'application.models.domains.lunch.*',
 		'application.components.*',
 	),
 
@@ -52,7 +56,18 @@ return array(
 		*/
 
 		// database settings are configured in database.php
-		'db'=>require(dirname(__FILE__).'/database.php'),
+		// 'db'=>require(dirname(__FILE__).'/database.php'),
+                'db'    => [
+                    'class'                 => 'CDbConnection',
+                    'connectionString'      => 'mysql:host=localhost;dbname=lunchmap',
+                    'emulatePrepare'        => true,
+                    'username'              => 'root',
+                    'password'              => 'root',
+                    'charset'               => 'utf8',
+                    'enableProfiling'       => true,
+                    'enableParamLogging'    => true,
+                    'schemaCachingDuration' => 3600,
+                ],
 
                 'viewRenderer'=>array(
                     'class'=>'application.extensions.smarty.ESmartyViewRenderer',
@@ -69,7 +84,7 @@ return array(
 			'routes'=>array(
 				array(
 					'class'=>'CFileLogRoute',
-					'levels'=>'error, warning',
+					'levels'=>'error, warning, info, debug',
 				),
 				// uncomment the following to show log messages on web pages
 				/*
