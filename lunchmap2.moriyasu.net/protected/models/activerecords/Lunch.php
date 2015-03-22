@@ -31,7 +31,7 @@ class Lunch extends LunchBase
      *
      * @param string $className className
      *
-     * @return PpMember
+     * @return Lunch
      */
     public static function model($className = __CLASS__)
     {
